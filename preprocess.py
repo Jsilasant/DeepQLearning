@@ -10,7 +10,7 @@ from skimage.color import rgb2gray
 # Grayscale and crop frames
 # (210, 160, 3) -> (188, 144)
 def preprocess_frame(frame):
-   grayscaled_frame = rgb2gray(frame)  # becomes 
+   grayscaled_frame = rgb2gray(frame)
    cropped_frame = grayscaled_frame[8:196,2:146]
    return cropped_frame
 

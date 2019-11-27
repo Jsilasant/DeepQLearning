@@ -1,3 +1,5 @@
+# Thanks to StarAI @ https://colab.research.google.com/drive/1flu31ulJlgiRL1dnN2ir8wGh9p7Zij2t
+
 # Install dependencies to record and display video
 !pip install gym pyvirtualdisplay > /dev/null 2>&1
 !apt-get install -y xvfb python-opengl ffmpeg > /dev/null 2>&1

@@ -8,48 +8,12 @@ import numpy as np
 import random
 import threading
 import time
+
 game ='SpaceInvaders-v0'
-# Change that value to test instead of train
 testing = False
-# Model path (to load when testing)
-test_model_path = '/path/to/your/qlearning.tflearn.ckpt'
-# Atari game to learn
-# You can also try: 'Breakout-v0', 'Pong-v0', 'SpaceInvaders-v0', ...
-game = 'MsPacman-v0'
-# Learning threads
-n_threads = 8
-
-# =============================
-#   Training Parameters
-# =============================
-# Max training steps
-TMAX = 80000000
-# Current training step
-T = 0
-# Consecutive screen frames when performing training
-action_repeat = 4
-# Async gradient update frequency of each learning thread
-I_AsyncUpdate = 5
-# Timestep to reset the target network
-I_target = 40000
-# Learning rate
-learning_rate = 0.001
-# Reward discount rate
-gamma = 0.99
-# Number of timesteps to anneal epsilon
-anneal_epsilon_timesteps = 400000
-
-# =============================
-#   Utils Parameters
-# =============================
-# Display or not gym evironment screens
 show_training = True
-# Directory for storing tensorboard summaries
-summary_dir = '/tmp/tflearn_logs/'
-summary_interval = 100
 checkpoint_path = 'qlearning.tflearn.ckpt'
 checkpoint_interval = 2000
-# Number of episodes to run gym evaluation
 num_eval_episodes = 100
 
 
@@ -105,7 +69,8 @@ def actor_progression(thread_id, env, session, actions, summary_ops, saver):
     gamma_batch = []
 
   
-
+    print("Thread " + str(thread_id) + " - Final epsilon: " + str(final_epsilon))
+    
     time.sleep(3*thread_id)
     t = 0
     while current_steps < max_steps:

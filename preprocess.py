@@ -18,8 +18,8 @@ def preprocess_frame(frame):
    grayscaled_frame = rgb2gray(frame)
    cropped_frame = grayscaled_frame[8:-12,4:-12]
    normalized_frame = cropped_frame/255.0
-   preprocess_frame = transform.resize(normalized_frame,[110,84])
-   return cropped_frame
+   preprocessed_frame = transform.resize(normalized_frame,[110,84])
+   return preprocessed_frame
 
 # View Original vs Preprocessed
 def main():
